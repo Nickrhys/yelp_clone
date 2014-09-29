@@ -48,16 +48,17 @@ describe 'editing restaurants' do
     end  
   end
 
-  decribe 'deleting restaurants' do 
+  describe 'deleting restaurants' do 
     before do 
     Restaurant.create(name:'Pizza Pilgrims')
   end
 
-  it 'removes a restaurant when a user clicks a delete link' do 
-      visit '/restaurants'
-      click_link 'Delete Pizza Pilgrims'
-      expect(page).not_to have_content 'Pizza Pilgrims'
-      expect(page).to have_content 'Restaurant deleted successfully'
+    it 'removes a restaurant when a user clicks a delete link' do 
+        visit '/restaurants'
+        click_link 'Delete Pizza Pilgrims'
+        expect(page).not_to have_content 'Pizza Pilgrims'
+        expect(page).to have_content 'Restaurant deleted successfully'
+    end
   end
 
 end
