@@ -32,6 +32,32 @@ describe 'creating restaurants' do
     end 
   end
 
+describe 'editing restaurants' do
+  before do 
+    Restaurant.create(name:'Pizza Pilgrims')
+  end
+  
+
+    it 'can allow a user to edit a restaurant' do
+      visit '/restaurants'
+      click_link 'Edit Pizza Pilgrims'
+      fill_in "Name", with: 'Pizza Pilgrims Dean Street'
+      click_button 'Update Restaurant'
+      expect(page).to have_content 'Pizza Pilgrims Dean Street'
+      expect(current_path).to eq '/restaurants'
+    end  
+  end
+
+  decribe 'deleting restaurants' do 
+    before do 
+    Restaurant.create(name:'Pizza Pilgrims')
+  end
+
+  it 'removes a restaurant when a user clicks a delete link' do 
+      visit '/restaurants'
+      click_link 'Delete Pizza Pilgrims'
+      expect(page).not_to have_content 'Pizza Pilgrims'
+      expect(page).to have_content 'Restaurant deleted successfully'
+  end
 
 end
-
