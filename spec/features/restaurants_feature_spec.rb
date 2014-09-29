@@ -21,6 +21,8 @@ describe 'restaurants' do
       end
     end 
 
+
+
 describe 'creating restaurants' do 
     it 'prompts a user to fill out a form, then displays the new restaurant' do
       visit '/restaurants'
@@ -30,6 +32,23 @@ describe 'creating restaurants' do
       expect(page).to have_content 'Pizza Pilgrims'
       expect(current_path).to eq '/restaurants'
     end 
+  end
+
+describe 'restaurant pages' do   
+  before do 
+      Restaurant.create(name: 'Pizza Pilgrims', description: 'best pizza in soho')
+    end
+
+    it 'should show a restaurant' do 
+      visit '/restaurants'
+      expect(page).to have_link 'Pizza Pilgrims'
+    end
+
+    it 'should show a description of restaurant in restaurant page' do 
+      visit '/restaurants'
+      click_link 'Pizza Pilgrims'
+      expect(page).to have_content 'best pizza in soho'
+    end
   end
 
 describe 'editing restaurants' do
@@ -60,5 +79,7 @@ describe 'editing restaurants' do
         expect(page).to have_content 'Restaurant deleted successfully'
     end
   end
+
+  describe 'showin'
 
 end
