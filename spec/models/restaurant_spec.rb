@@ -8,8 +8,8 @@ RSpec.describe Restaurant, :type => :model do
 	end
 
 	it "is not valid unless it is a unique name" do 
-		Restaurant.create(name: "the Ivy")
-		restaurant = Restaurant.new(name: "the Ivy")
+		Restaurant.create(name: "Pizza Pilgrims")
+		restaurant = Restaurant.new(name: "Pizza Pilgrims")
 		expect(restaurant).to have(1).error_on(:name)
 	end
 end
