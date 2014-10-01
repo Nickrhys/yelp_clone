@@ -6,4 +6,6 @@ RSpec.describe Review, :type => :model do
 		review = Review.new(review: 'excellent', rating: '100')
 		expect(review).to have(1).error_on(:rating)
 	end	
+
+	# can put in test for numbers below 1 and to check it validates numbers between 1 and 5 too. 
 end	
