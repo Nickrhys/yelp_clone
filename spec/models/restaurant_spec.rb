@@ -23,7 +23,7 @@ RSpec.describe Restaurant, :type => :model do
 		end
 
 		context '1 review' do 
-			it "retirns that rating" do 
+			it "returns that rating" do 
 				restaurant = Restaurant.create(name: "Pizza Pilgrims")
 				restaurant.reviews.create(rating: 4)
 				expect(restaurant.average_rating).to eq 4
