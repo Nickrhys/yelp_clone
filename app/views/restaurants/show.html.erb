@@ -1,4 +1,6 @@
 <h1><%= @restaurant.name %></h1>
+<%=image_tag @restaurant.image.url(:medium) %>
+
 <p><%= @restaurant.description %></p>
 
 <%= link_to 'Return to menu', restaurants_path %>

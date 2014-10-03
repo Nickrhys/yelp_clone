@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'rmagick'
+gem "paperclip", "~> 4.2"
+
 
 
 
